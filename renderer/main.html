@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; img-src blob: data: *; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src blob: data: mediastream: *;">
+    <title>Neoclide</title>
+
+    <link rel="import" href="../bower_components/polymer/polymer.html" />
+    <link rel="import" href="../node_modules/neoclide-client/neovim-editor.html" />
+    <script src="./main.js"></script>
+    <script src="./bundle.js"></script>
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: none;
+        outline: none;
+      }
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+      }
+      #neoclide-editor {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <neoclide-app></neoclide-app>
+  </body>
+</html>

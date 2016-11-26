@@ -1,0 +1,20 @@
+{
+  "window_options": {
+    "width": 1000,
+    "height": 960,
+    "alwaysOnTop": false,
+    "title": "Neoclide",
+    "webPreferences": {
+      "webgl": false,
+      "experimentalCanvasFeatures": false,
+      "plugins": true
+    },
+    "defaultEncoding": "utf8",
+    "transparent": true,
+    "frame": false,
+    "hasShadow": false
+  },
+  "remember_window_state": true,
+  "single_instance": false,
+  "show_menubar": true
+}

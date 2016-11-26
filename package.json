@@ -1,0 +1,63 @@
+{
+  "name": "neoclide",
+  "productName": "neoclide",
+  "version": "0.0.1",
+  "description": "Web-enhanced Extensible Neovim Frontend",
+  "main": "main/main.js",
+  "bin": "./bin/cli.js",
+  "scripts": {
+    "dep": "npm install && bower install",
+    "app": "electron $(npm prefix)",
+    "debug": "ELECTRON_ENABLE_STACK_DUMPING=true NODE_ENV=debug electron $(npm prefix)",
+    "start": "npm run dep && npm run build && npm run app",
+    "build": "electron-rebuild && webpack",
+    "smoke-test": "npm run build-test && mocha test/smoke",
+    "clean": "rm -rf build bower_components node_modules",
+    "pack:osx": "npm run build && npm prune --production && electron-packager ./ --platform=darwin --arch=x64 --icon=./resources/icon/nyaovim-logo.icns --app-bundle-id=io.github.rhysd.nyaovim --version=1.4.1 && cp README.md LICENSE.txt Neoclide-darwin-x64/ && zip --symlinks -r Neoclide-darwin-x64.zip Neoclide-darwin-x64/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neoclide/neoclide.git"
+  },
+  "keywords": [
+    "editor",
+    "extensible",
+    "WebComponents",
+    "Neovim",
+    "nvim",
+    "Electron",
+    "Polymer"
+  ],
+  "author": "chemzqm <chemzqm@gamil.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neoclide/neoclide/issues"
+  },
+  "homepage": "https://github.com/neoclide/neoclide#readme",
+  "dependencies": {
+    "about-window": "^1.6.0",
+    "commander": "^2.9.0",
+    "component-emitter": "^1.2.1",
+    "deep-extend": "^0.4.1",
+    "electron": "^1.4.7",
+    "electron-localshortcut": "^1.0.0",
+    "electron-prebuilt": "^1.4.7",
+    "electron-window-state": "^3.1.0",
+    "mkdirp": "^0.5.1",
+    "neoclide-client": "^1.0.3",
+    "node-parallel": "^0.1.6"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "chai": "^3.5.0",
+    "devtron": "^1.4.0",
+    "electron-rebuild": "^1.4.0",
+    "mocha": "^3.1.2",
+    "node-pre-gyp": "^0.6.31",
+    "spectron": "^3.4.0",
+    "webpack": "^1.13.3"
+  },
+  "browser": {
+    "emitter": "component-emitter"
+  }
+}
