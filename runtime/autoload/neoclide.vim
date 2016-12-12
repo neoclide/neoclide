@@ -16,10 +16,6 @@ function! neoclide#require_javascript_file(script_path) abort
     call rpcnotify(0, 'neoclide:append-script-file', a:script_path)
 endfunction
 
-function! neoclide#call_javascript_function(func_name, args) abort
-    call rpcnotify(0, 'neoclide:call-global-function', a:func_name, a:args)
-endfunction
-
 function! neoclide#open_devtools(...) abort
     let mode = a:0 > 0 ? a:1 : 'detach'
     if index(['right', 'bottom', 'undocked', 'detach'], mode) == -1

@@ -17,25 +17,17 @@ class ComponentLoader {
   }
 
   loadPluginDir(dir) {
-    const plugin_dir = path.join(dir, 'neoclide-plugin')
+    const htmlFile = path.join(dir, 'neoclide/index.html')
     try {
-      for (let _i = 0, _a = fs.readdirSync(plugin_dir); _i < _a.length; _i++) {
-        const entry = _a[_i]
-        if (entry.endsWith('.html')) {
-          this.loadComponent(path.join(plugin_dir, entry))
-        }
-      }
-      this.neoclide_plugin_paths.push(dir)
-    }
-    catch (err) {
-    }
+      let stat = fs.stasSync(htmlFile)
+      if (stat.isFile()) this.loadComponent(htmlFile)
+    } catch(e) { }
   }
 
   loadFromRTP(runtimepaths) {
-    for (let _i = 0, runtimepaths_1 = runtimepaths; _i < runtimepaths_1.length; _i++) {
-      const rtp = runtimepaths_1[_i]
-      this.loadPluginDir(rtp)
-    }
+    runtimepaths.forEach(path => {
+      this.loadPluginDir(path)
+    })
   }
 }
 
